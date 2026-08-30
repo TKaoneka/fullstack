@@ -32,30 +32,30 @@ let persons = [
 ]
 
 app.get('/api/persons', (req, res) => {
-    res.json(persons)
+    return res.json(persons)
 })
 
 app.get('/api/persons/:id', (req, res) => {
     const id = req.params.id
     const person = persons.find(p => p.id === id)
     if (person) {
-        res.json(person)
+        return res.json(person)
     } else {
-        res.status(404).end()
+        return res.status(404).end()
     }
 })
 
 app.get('/info', (req, res) => {
     const date = new Date()
     const count = persons.length
-    res.send(`<p>Phonebook has info for ${count} people</p>
+    return res.send(`<p>Phonebook has info for ${count} people</p>
         <p>${date}</p>`)
 })
 
 app.delete('/api/persons/:id', (req, res) => {
     const id = req.params.id
     persons = persons.filter(p => p.id !== id)
-    res.status(204).end()
+    return res.status(204).end()
 })
 
 const generateId = () => {
