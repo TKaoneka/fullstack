@@ -5,8 +5,8 @@ const app = express()
 
 app.use(express.static('dist'))
 app.use(cors())
-app.use(morgan('tiny'))
 app.use(express.json())
+app.use(morgan('tiny'))
 
 let persons = [
     { 
@@ -84,7 +84,7 @@ app.post('/api/persons', (req, res) => {
         number: body.number
     }
     persons = persons.concat(person)
-    res.json(person)
+    return res.json(person)
 })
 
 const PORT = process.env.PORT || 3001
