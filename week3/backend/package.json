@@ -18,11 +18,14 @@
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "build:ui": "rm -rf dist && cd ../../week2/phonebook && npm run build && cp -r dist ../../week3/backend"
+    "build:ui": "rm -rf dist && cd ../../week2/phonebook && npm run build && cp -r dist ../../week3/backend",
+    "deploy:full": "npm run build:ui && git add . && git commit -m 'Full stack build' && git push"
   },
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "mongoose": "^9.9.4",
     "morgan": "^1.12.0"
   }
 }
