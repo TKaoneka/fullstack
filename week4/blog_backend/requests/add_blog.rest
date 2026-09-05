@@ -1,0 +1,67 @@
+### 1. Create a new user
+# @name createUser
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "username": "tyronk",
+  "name": "Tyron Koodley",
+  "password": "supersecretpassword"
+}
+
+### 2. Get all users (copy the "id" of the user created above if needed)
+GET http://localhost:3003/api/users
+
+### 3. Login to get an authentication token
+# @name login
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "tyronk",
+  "password": "supersecretpassword"
+}
+
+### 4. Create Blog 1 (Weshington)
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InR5cm9uayIsImlkIjoiNmE5YjUxNGU3ODk3MGFjMGRkNTJjMzMyIiwiaWF0IjoxNzg4NTY4NDI4LCJleHAiOjE3ODg1NzIwMjh9.f6OJcVaLX7DOmHMx1AooOl7BeWHTi4hcXpmsEpdiEAU
+
+{
+  "title": "Weshington",
+  "author": "Tyron Koodley",
+  "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  "likes": 12
+}
+
+### 5. Create Blog 2 (React Patterns)
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InR5cm9uayIsImlkIjoiNmE5YjUxNGU3ODk3MGFjMGRkNTJjMzMyIiwiaWF0IjoxNzg4NTY4NDI4LCJleHAiOjE3ODg1NzIwMjh9.f6OJcVaLX7DOmHMx1AooOl7BeWHTi4hcXpmsEpdiEAU
+
+{
+  "title": "React Patterns and Best Practices",
+  "author": "Michael Chan",
+  "url": "https://reactpatterns.com/",
+  "likes": 7
+}
+
+### 6. Create Blog 3 (Canonical Linting)
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InR5cm9uayIsImlkIjoiNmE5YjUxNGU3ODk3MGFjMGRkNTJjMzMyIiwiaWF0IjoxNzg4NTczNDA1LCJleHAiOjE3ODg1NzcwMDV9.C46VHRpF7_cAKM2iWl-QSSx8iIfRos5qdjT8rcyRlHY
+
+{
+  "title": "Canonical Linting Rules for Node.js",
+  "author": "Edsger W. Dijkstra",
+  "url": "https://eslint.org/docs/latest/user-guide/getting-started",
+  "likes": 3
+}
+
+### 7. Get all blogs (Verify 'user' field is populated with creator details)
+GET http://localhost:3003/api/blogs
+
+###
+DELETE http://localhost:3003/api/blogs/6a9b6756a80f9cf01b02673e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InR5cm9uayIsImlkIjoiNmE5YjUxNGU3ODk3MGFjMGRkNTJjMzMyIiwiaWF0IjoxNzg4NTczNDA1LCJleHAiOjE3ODg1NzcwMDV9.C46VHRpF7_cAKM2iWl-QSSx8iIfRos5qdjT8rcyRlHY
